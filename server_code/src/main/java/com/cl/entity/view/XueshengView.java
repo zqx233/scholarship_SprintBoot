@@ -1,0 +1,41 @@
+package com.cl.entity.view;
+
+import com.cl.entity.XueshengEntity;
+
+import com.baomidou.mybatisplus.annotations.TableName;
+import java.math.BigDecimal;
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.BeansException;
+
+import java.io.Serializable;
+import com.cl.utils.EncryptUtil;
+ 
+
+/**
+ * 学生
+ * 后端返回视图实体辅助类   
+ * （通常后端关联的表或者自定义的字段需要返回使用）
+ * @author 
+ * @email 
+ * @date 2026-01-25 17:42:37
+ */
+@TableName("xuesheng")
+public class XueshengView  extends XueshengEntity implements Serializable {
+	private static final long serialVersionUID = 1L;
+
+	public XueshengView(){
+	}
+ 
+ 	public XueshengView(XueshengEntity xueshengEntity){
+ 	try {
+			BeanUtils.copyProperties(this, xueshengEntity);
+		} catch (BeansException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+ 		
+	}
+
+
+
+}
